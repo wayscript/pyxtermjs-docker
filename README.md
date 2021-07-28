@@ -1,7 +1,7 @@
 # Dockerized pyxterm.js
 This is a dockerized version of [pyxterms.js](cs01/pyxtermjs), giving you a fully functional terminal to a docker container, in your browser.
 
-![screenshot](https://github.com/wayscript/pyxtermjs-docker/raw/master/pyxtermjs-docker.gif)
+![screenshot](https://raw.githubusercontent.com/wayscript/pyxtermjs-docker/master/pyxtermjs-docker.gif)
 
 ## Running Locally
 
