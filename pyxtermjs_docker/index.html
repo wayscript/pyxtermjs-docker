@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>pyxterm.js</title>
+  <title>Dockerized pyxterm.js</title>
   <style>
   html {
     font-family: arial;
@@ -11,13 +11,13 @@
 </head>
 <body>
 
-<span style="font-size: 1.4em;">pyxterm.js</span>&nbsp;&nbsp;&nbsp;
+<span style="font-size: 1.4em;">Dockerized pyxterm.js</span>&nbsp;&nbsp;&nbsp;
 <span style="font-size: small;">status: <span style="font-size: small;" id="status">connecting...</span></span>
 
 <div style="width: 100%; height: calc(100% - 50px);" id="terminal"></div>
 
 <p style="text-align: right; font-size: small;">
-  built by <a href="https://grassfedcode.com">Chad Smith</a> <a href="https://github.com/cs01">GitHub</a>
+  Adapted from <a href="https://github.com/cs01/pyxtermjs">pyxterm.js</a> by <a href="https://grassfedcode.com">Chad Smith</a>
 </p>
 <!-- xterm -->
 <script src="https://unpkg.com/xterm@3.6.0/dist/xterm.js"></script>
@@ -43,7 +43,7 @@
   console.log(`size: ${term.cols} columns, ${term.rows} rows`)
   // term.toggleFullScreen(true)
   term.fit()
-  term.write("Welcome to pyxterm.js!\nhttps://github.com/cs01/pyxterm.js\n")
+  term.write("Welcome!\n")
   term.on('key', (key, ev) => {
     console.log("pressed key", key)
     console.log("event", ev)
@@ -67,6 +67,8 @@
   socket.on("disconnect", () => {
     status.innerHTML = '<span style="background-color: #ff8383;">disconnected</span>'
   })
+
+  socket.emit("pty-input", {"input": "\n"})
 
   function fitToscreen(){
     term.fit()
